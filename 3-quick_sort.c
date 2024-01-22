@@ -1,6 +1,7 @@
 #include "sort.h"
 
-/** array_part - partitions arrays
+/**
+ * array_part - partitions arrays
  * @array: Array to be sorted
  * @x: begining of the array
  * @y: end of array;
@@ -63,7 +64,7 @@ void sort_quick(int *array, int x, int y, int size)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || !array || size <=1)
+	if (array == NULL || !array || size <= 1)
 		return;
 	sort_quick(array, 0, size - 1, size);
 }
