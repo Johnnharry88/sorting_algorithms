@@ -15,13 +15,13 @@ void shell_sort(int *array, size_t size)
 	if (!array || array == NULL || size < 2)
 		return;
 	while (spx < size / 3)
-		spx = (1 + (spx *3));
+		spx = (1 + (spx * 3));
 	while (spx)
 	{
-		for (x = spx; x <size; x++)
+		for (x = spx; x < size; x++)
 		{
 			temp = array[x];
-			for (y = x; y >= spx && array[y- spx] > temp; y = y - spx)
+			for (y = x; y >= spx && array[y - spx] > temp; y = y - spx)
 				array[y] = array[y - spx];
 			array[y] = temp;
 		}
@@ -29,5 +29,3 @@ void shell_sort(int *array, size_t size)
 		spx = spx / 3;
 	}
 }
-
-
