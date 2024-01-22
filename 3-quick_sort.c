@@ -64,7 +64,7 @@ void sort_quick(int *array, int x, int y, int size)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || !array || size <= 1)
+	if (array == NULL || !array || size < 2)
 		return;
 	sort_quick(array, 0, size - 1, size);
 }
