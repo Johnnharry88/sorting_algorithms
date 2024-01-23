@@ -1,6 +1,22 @@
 #include "sort.h"
 
 /**
+ * _xchange - swaps position of two welements
+ * @array : Array to be sorted
+ * @x: first array element.
+ * @y: second array element
+ * Return: void.
+ */
+void _xchange(int *array, size_t x, size_t y)
+{
+	int temp;
+
+	temp = array[x];
+	array[x] = array[y];
+	array[y] = temp;
+}
+
+/**
  * array_part - partitions arrays
  * @array: Array to be sorted
  * @x: begining of the array
