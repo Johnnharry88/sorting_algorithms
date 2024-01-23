@@ -8,32 +8,29 @@
  * @size: array size in full
  * Return: Pivot point
  */
-int array_part(int *array, int x, int y, int size)
+int array_part(int *array, int x, int y, size_t size)
 {
-	int xty = array[y];
-	int a = x, b, tmp;
+	int a, xty, b, temp;
 
-	for (b = a; b < y; b++)
+	xty = array[y];
+	a = x;
+	for (b = x; b <= y - 1; b++)
 	{
-		if (array[b] <= xty)
+		if (array[b] < xty)
 		{
-			if (a != b)
-			{
-				tmp = array[a];
-				array[b] = array[a];
-				array[b] = tmp;
+			temp = array[a];
+			array[a] = array[b];
+			array[b] = temp;
+			if (array[a] != array[b]
 				print_array(array, size);
-			}
 			a = a + 1;
 		}
 	}
-	if (a != y)
-	{
-		tmp = array[a];
-		array[a] = array[y];
-		array[y] = tmp;
+	temp = array[a];
+	array[a] = array[y];
+	array[y] = temp;
+	if (array[a] != array[y])
 		print_array(array, size);
-	}
 	return (a);
 }
 
@@ -45,7 +42,7 @@ int array_part(int *array, int x, int y, int size)
  * @size: size of array in full
  * Return: void.
  */
-void sort_quick(int *array, int x, int y, int size)
+void sort_quick(int *array, size_t size, int x, int y)
 {
 	int alx;
 
@@ -53,7 +50,7 @@ void sort_quick(int *array, int x, int y, int size)
 	{
 		alx = array_part(array, x, y, size);
 		sort_quick(array, x, alx - 1, size);
-		sort_quick(array, alx + 1, y, size);
+		sort_quick(array,alx + 1, y, size);
 	}
 }
 
@@ -66,5 +63,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || !array || size < 2)
 		return;
-	sort_quick(array, 0, size - 1, size);
+	sort_quick(array, 0, (int)size - 1, size);
 }
